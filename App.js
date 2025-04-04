@@ -5,10 +5,18 @@ import {
   ViewBase,
   StatusBar as RNStatusBar,
   StatusBar,
+  FlatList,
 } from 'react-native';
-import FontAwesome6 from '@react-native-vector-icons/fontawesome6';
+import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 
 const App = () => {
+  const [dataKaomoji, setDataKaomoji] = useState([
+    '⋆𐙚₊˚⊹♡',
+    '⋆౨ৎ˚⟡˖ ࣪',
+    '૮ ˶ᵔ ᵕ ᵔ˶ ა',
+    '꒰ᐢ. .ᐢ꒱₊˚⊹',
+  ]);
+
   return (
     <View
       style={{
@@ -32,7 +40,7 @@ const App = () => {
             alignItems: 'center',
             marginLeft: 10,
           }}>
-          <FontAwesome6 name="bars" size={20} color="#fff " />;
+          {/* <FontAwesome6 name="bars" size={25} color="white" />; */}
         </View>
         <View style={{flex: 1}}>
           <Text
@@ -46,6 +54,25 @@ const App = () => {
           </Text>
         </View>
       </View>
+
+      <FlatList
+        style={{marginTop: 20}}
+        data={dataKaomoji}
+        renderItem={({item, index}) => (
+          <View
+            style={{
+              marginHorizontal: 10,
+              marginVertical: 5,
+              backgroundColor: '#272b35',
+              paddingVertical: 10,
+              elevation: 3,
+              borderRadius: 5,
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+            <Text style={{color: '#fff'}}>{item}</Text>
+          </View>
+        )}></FlatList>
     </View>
   );
 };
