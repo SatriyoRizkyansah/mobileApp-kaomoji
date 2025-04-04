@@ -6,8 +6,11 @@ import {
   StatusBar as RNStatusBar,
   StatusBar,
   FlatList,
+  Image,
+  TouchableOpacity,
 } from 'react-native';
-import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
+// import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
+import Clipboard from '@react-native-clipboard/clipboard';
 
 const App = () => {
   const [dataKaomoji, setDataKaomoji] = useState([
@@ -16,6 +19,10 @@ const App = () => {
     '૮ ˶ᵔ ᵕ ᵔ˶ ა',
     '꒰ᐢ. .ᐢ꒱₊˚⊹',
   ]);
+
+  const copyKaomoji = item => {
+    Clipboard.setString(item);
+  };
 
   return (
     <View
@@ -41,6 +48,11 @@ const App = () => {
             marginLeft: 10,
           }}>
           {/* <FontAwesome6 name="bars" size={25} color="white" />; */}
+          {/* <Image
+            source={require('./public/images/bars-svgrepo-com.svg')}
+            imageStyle={{width: 25, height: 25}}
+          /> */}
+          <Text style={{color: '#fff', fontSize: 20}}>|||</Text>
         </View>
         <View style={{flex: 1}}>
           <Text
@@ -69,8 +81,24 @@ const App = () => {
               borderRadius: 5,
               alignItems: 'center',
               justifyContent: 'center',
+              flexDirection: 'row',
             }}>
-            <Text style={{color: '#fff'}}>{item}</Text>
+            <View style={{flex: 1, marginLeft: 10}}>
+              <Text style={{color: '#fff'}}>{item}</Text>
+            </View>
+            <TouchableOpacity onPress={copyKaomoji(item)}>
+              <View
+                style={{
+                  backgroundColor: 'lightblue',
+                  borderRadius: 8,
+                  marginRight: 10,
+                }}>
+                <Text
+                  style={{color: '#272b35', fontWeight: 'bold', padding: 5}}>
+                  Copy
+                </Text>
+              </View>
+            </TouchableOpacity>
           </View>
         )}></FlatList>
     </View>
