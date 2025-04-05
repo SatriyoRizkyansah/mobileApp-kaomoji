@@ -8,6 +8,7 @@ import {
   FlatList,
   Image,
   TouchableOpacity,
+  ToastAndroid,
 } from 'react-native';
 // import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import Clipboard from '@react-native-clipboard/clipboard';
@@ -18,10 +19,12 @@ const App = () => {
     '⋆౨ৎ˚⟡˖ ࣪',
     '૮ ˶ᵔ ᵕ ᵔ˶ ა',
     '꒰ᐢ. .ᐢ꒱₊˚⊹',
+    'Test',
   ]);
 
   const copyKaomoji = item => {
     Clipboard.setString(item);
+    ToastAndroid.show(item + ' copied', ToastAndroid.SHORT);
   };
 
   return (
