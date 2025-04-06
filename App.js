@@ -19,7 +19,6 @@ const App = () => {
     '⋆౨ৎ˚⟡˖ ࣪',
     '૮ ˶ᵔ ᵕ ᵔ˶ ა',
     '꒰ᐢ. .ᐢ꒱₊˚⊹',
-    'Test',
   ]);
 
   const copyKaomoji = item => {
@@ -55,7 +54,7 @@ const App = () => {
             source={require('./public/images/bars-svgrepo-com.svg')}
             imageStyle={{width: 25, height: 25}}
           /> */}
-          <Text style={{color: '#fff', fontSize: 20}}>|||</Text>
+          {/* <Text style={{color: '#fff', fontSize: 20}}>|||</Text> */}
         </View>
         <View style={{flex: 1}}>
           <Text
