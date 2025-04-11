@@ -1,4 +1,4 @@
-package com.kaomoji
+package com.namaanda.kaomoji
 
 import android.app.Application
 import com.facebook.react.PackageList
